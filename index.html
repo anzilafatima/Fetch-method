@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch-method</title>
+</head>
+<body>
+    <h1 id="product-title"></h1>
+    <h1 id="product-price"></h1>
+    <h1 id="product-id"></h1>
+    <script>
+        fetch('data.json') 
+        .then(response => response.json()) 
+        .then(data => { 
+        var productTitle=document.getElementById('product-title')
+        productTitle.textContent = data.productName; 
+        var ProductPrice = document.getElementById('product-price')
+        ProductPrice.textContent = data.price; 
+        var ProductId = document.getElementById('product-id')
+        ProductId.textContent= data.id;
+        })
+      .catch((erro)=>
+    {
+        document.write('data not found')
+    }); 
+    </script>
+</body>
+</html>
